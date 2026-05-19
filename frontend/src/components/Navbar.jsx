@@ -5,10 +5,11 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const navItems = [
-  { to: '/',          label: 'Dashboard',    icon: '◈' },
-  { to: '/complaints', label: 'Complaints',  icon: '◉' },
-  { to: '/submit',    label: 'Submit',       icon: '⊕' },
+  { to: '/',            label: 'Dashboard',   icon: '◈' },
+  { to: '/complaints',  label: 'Complaints',  icon: '◉' },
+  { to: '/submit',      label: 'Submit',      icon: '⊕' },
   { to: '/ai-analysis', label: 'AI Analysis', icon: '◎' },
+  { to: '/analytics',   label: 'Analytics',   icon: '◑' }, // ✅ Analytics link
 ];
 
 const Navbar = () => {

@@ -8,6 +8,7 @@ import Complaints from './pages/Complaints';
 import ComplaintDetails from './pages/ComplaintDetails';
 import SubmitComplaint from './pages/SubmitComplaint';
 import AIAnalysis from './pages/AIAnalysis';
+import Analytics from './pages/Analytics';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import { useAuth } from './context/AuthContext';
@@ -16,10 +17,7 @@ import { useAuth } from './context/AuthContext';
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useAuth();
 
-  // Auth check ho raha hai tab tak kuch mat dikhao
   if (loading) return null;
-
-  // Login nahi hai → Login page pe redirect
   if (!user) return <Navigate to="/login" replace />;
 
   return children;
@@ -40,12 +38,12 @@ function App() {
           <main className="ml-64 min-h-screen p-6 lg:p-8">
             <div className="max-w-7xl mx-auto">
               <Routes>
-                {/* Sab routes protected hain — login zaroori hai */}
                 <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
                 <Route path="/complaints" element={<ProtectedRoute><Complaints /></ProtectedRoute>} />
                 <Route path="/complaints/:id" element={<ProtectedRoute><ComplaintDetails /></ProtectedRoute>} />
                 <Route path="/submit" element={<ProtectedRoute><SubmitComplaint /></ProtectedRoute>} />
                 <Route path="/ai-analysis" element={<ProtectedRoute><AIAnalysis /></ProtectedRoute>} />
+                <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
               </Routes>
             </div>
           </main>
